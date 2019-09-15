@@ -13,8 +13,8 @@ var interval;
 
 
 //---- var mainArry = firstArry.concat(sacendArry);
-var x = firstRandom();
-var xx = sacendRandom();
+var x = arrayRandom(13, firstArry);
+var xx = arrayRandom(12, sacendArry);
 var xxx = x.concat(xx);
 
 btn.addEventListener("click", function () {
@@ -22,8 +22,8 @@ btn.addEventListener("click", function () {
     sacendArry = numpers(14, 25);
     mainArr = numpers(26, 50);
 
-    x = firstRandom();
-    xx = sacendRandom();
+    x = arrayRandom(13, firstArry);
+    xx = arrayRandom(12, sacendArry);
     xxx = x.concat(xx);
 
     testValue = 1;
@@ -42,22 +42,13 @@ btn.addEventListener("click", function () {
 
 });
 
-function firstRandom() {
-    let f_14 = [];
-    for (let i = 0; i < 13; i++) {
-        let x = Math.floor(Math.random() * firstArry.length);
-        f_14.push(firstArry[x]);
-        firstArry.splice(x, 1);
-    } return f_14;
-}
-
-function sacendRandom() {
-    let f_11 = [];
-    for (let i = 0; i < 12; i++) {
-        let x = Math.floor(Math.random() * sacendArry.length);
-        f_11.push(sacendArry[x]);
-        sacendArry.splice(x, 1);
-    } return f_11;
+function arrayRandom(cells, lengths) {
+    let randomArry = [];
+    for (let i = 0; i < cells; i++) {
+        let x = Math.floor(Math.random() * lengths.length);
+        randomArry.push(lengths[x]);
+        lengths.splice(x, 1);
+    } return randomArry;
 }
 
 creatGame();
@@ -141,7 +132,7 @@ function endComments(testValue) {
     if (testValue == 51) {
         document.querySelector("p").textContent = "مبارك عليك";
         var strings;
-        var strings2="";
+        var strings2 = "";
         if (elapsedTimes < 45) {
             strings = "ذكائك الخارق";
         } else if (elapsedTimes < 55) {
@@ -162,7 +153,7 @@ function endComments(testValue) {
             boxs[i].style.display = "none";
         }
         textWiner.style.display = "block";
-        textWiner.textContent = strings2+"شارك " + strings + " مع اصحابك";
+        textWiner.textContent = strings2 + "شارك " + strings + " مع اصحابك";
 
     } else {
         document.querySelector("p").textContent = "الرقم التالي : " + testValue;
