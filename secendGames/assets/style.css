@@ -1,0 +1,15 @@
+.boxs{
+    margin: 0 auto;
+    max-width: 50%;
+}
+.box{
+    
+    height: 80px;
+    width: 19%;
+    float: left;
+    background-color: cadetblue;
+    margin: 0.5%;
+    text-align: center;
+    color: #fff;
+
+}
